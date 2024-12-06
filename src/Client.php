@@ -1,12 +1,12 @@
 <?php
 
-namespace Afosto\Acme;
+namespace Mbyte\Acmephp;
 
-use Afosto\Acme\Data\Account;
-use Afosto\Acme\Data\Authorization;
-use Afosto\Acme\Data\Certificate;
-use Afosto\Acme\Data\Challenge;
-use Afosto\Acme\Data\Order;
+use Mbyte\Acmephp\Data\Account;
+use Mbyte\Acmephp\Data\Authorization;
+use Mbyte\Acmephp\Data\Certificate;
+use Mbyte\Acmephp\Data\Challenge;
+use Mbyte\Acmephp\Data\Order;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;

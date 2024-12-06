@@ -1,6 +1,6 @@
 <?php
 
-namespace Afosto\Acme;
+namespace Mbyte\Acmephp;
 
 use GuzzleHttp\Exception\ClientException;
 

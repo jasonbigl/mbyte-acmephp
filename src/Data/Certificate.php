@@ -1,8 +1,8 @@
 <?php
 
-namespace Afosto\Acme\Data;
+namespace Mbyte\Acmephp\Data;
 
-use Afosto\Acme\Helper;
+use Mbyte\Acmephp\Helper;
 
 class Certificate
 {

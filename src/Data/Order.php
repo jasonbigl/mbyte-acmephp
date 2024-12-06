@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Afosto\Acme\Data;
+namespace Mbyte\Acmephp\Data;
 
 class Order
 {

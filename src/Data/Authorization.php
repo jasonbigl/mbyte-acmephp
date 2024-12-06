@@ -1,9 +1,9 @@
 <?php
 
-namespace Afosto\Acme\Data;
+namespace Mbyte\Acmephp\Data;
 
-use Afosto\Acme\Client;
-use Afosto\Acme\Helper;
+use Mbyte\Acmephp\Client;
+use Mbyte\Acmephp\Helper;
 
 class Authorization
 {

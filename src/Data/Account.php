@@ -1,6 +1,6 @@
 <?php
 
-namespace Afosto\Acme\Data;
+namespace Mbyte\Acmephp\Data;
 
 class Account
 {
@@ -11,7 +11,7 @@ class Account
     protected $contact;
 
     /**
-     * @var string
+     * @var \DateTime
      */
     protected $createdAt;
 
