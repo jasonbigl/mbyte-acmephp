@@ -1,0 +1,17 @@
+{
+    "name": "mbyte/acmephp",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mbyte\\Acmephp\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3|^7.0",
+        "league/flysystem": "^1.0|^3.0",
+
+        "ext-openssl": "*",
+        "ext-json": "*"
+    }
+}
