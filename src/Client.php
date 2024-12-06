@@ -328,7 +328,24 @@ class Client
             )
         );
 
-        $data = json_decode((string)$response->getBody(), true);
+        //异步查询order状态直到为valid
+        //https://community.letsencrypt.org/t/enabling-asynchronous-order-finalization/193522
+        $data = [];
+        $attempts = 0;
+        $orderUrl = $order->getUrl();
+        do {
+            $response = $this->request($orderUrl, $this->signPayloadKid(null, $orderUrl));
+            $data = json_decode((string)$response->getBody(), true);
+
+            $attempts++;
+
+            sleep(2);
+        } while ($data['status'] != 'valid' && $attempts <= 10);
+        if ($data['status'] != 'valid') {
+            //仍然不是valid
+            throw new \Exception('Order is not valid after finalize');
+        }
+
         $certificateResponse = $this->request(
             $data['certificate'],
             $this->signPayloadKid(null, $data['certificate'])
@@ -359,7 +376,7 @@ class Client
         $data = json_decode((string)$response->getBody(), true);
         $accountURL = $response->getHeaderLine('Location');
         $date = (new \DateTime())->setTimestamp(strtotime($data['createdAt']));
-        return new Account($data['contact'], $date, ($data['status'] == 'valid'), $data['initialIp'], $accountURL);
+        return new Account($data['contact'], $date, ($data['status'] == 'valid'), isset($data['initialIp']) ? $data['initialIp'] : '', $accountURL);
     }
 
     /**
